@@ -1,8 +1,9 @@
-%article.video_category
-	%header
-		%h3= link_to "comedy".capitalize
-	.videos.row
-	- @videos.each do |video|
-		.video.span2
-			= link_to video, nil do
-				%img(src="/tmp/#{video.small_cover_url}")
+- @categories.each do |category|
+	%article.video_category
+		%header
+			%h3= link_to category.name.capitalize, category
+			.videos.row
+			- category.videos.each do |video|
+				.video.span2
+					= link_to video, nil do
+						%img(src="/tmp/#{video.small_cover_url}")
