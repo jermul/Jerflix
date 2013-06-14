@@ -6,7 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Video.create(title: "Monk", small_cover_url: "monk.jpg", large_cover_url: "monk_large.jpg", description: "Lorem Ipsum for Monk")
+monk = Video.create(title: "Monk", small_cover_url: "monk.jpg", large_cover_url: "monk_large.jpg", description: "Lorem Ipsum for Monk")
 Video.create(title: "Family Guy", small_cover_url: "family_guy.jpg", large_cover_url: "family_guy.jpg", description: "Lorem Ipsum for Family Guy")
 Video.create(title: "Futurama", small_cover_url: "futurama.jpg", large_cover_url: "futurama.jpg", description: "Lorem Ipsum for Futurama")
 Video.create(title: "South Park", small_cover_url: "south_park.jpg", large_cover_url: "south_park.jpg", description: "Lorem Ipsum for South Park")
@@ -29,3 +29,8 @@ VideoCategory.create(video_id: 6, category_id: 1)
 VideoCategory.create(video_id: 7, category_id: 1)
 VideoCategory.create(video_id: 8, category_id: 1)
 VideoCategory.create(video_id: 9, category_id: 1)
+
+jim = User.create(full_name: 'Jim Jim', password: 'password', email: 'jim@example.com')
+
+Review.create(user: jim, video: monk, rating: 4, content: "This is a really good movie!")
+Review.create(user: jim, video: monk, rating: 2, content: "Not as good the second time around.")
