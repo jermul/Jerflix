@@ -11,7 +11,7 @@ gem 'faker'
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
-  gem 'uglifier', '>= 1.0.3'
+  gem 'uglifier', 		'>= 1.0.3'
 end
 
 group :development do
@@ -22,10 +22,13 @@ end
 
 group :test, :development do
 	gem 'rspec-rails'
+	gem 'pry'
 end
 
 group :test do
 	gem 'shoulda-matchers'
+	gem 'capybara'
+  gem 'launchy'
 end
 
 group :production do
