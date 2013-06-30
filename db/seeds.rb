@@ -31,6 +31,7 @@ VideoCategory.create(video_id: 8, category_id: 1)
 VideoCategory.create(video_id: 9, category_id: 1)
 
 jim = User.create(full_name: 'Jim Jim', password: 'password', email: 'jim@example.com')
+bob = User.create(full_name: 'Bob Bob', password: 'password', email: 'bob@example.com')
 
 Review.create(user: jim, video: monk, rating: 4, content: "This is a really good movie!")
 Review.create(user: jim, video: monk, rating: 2, content: "Not as good the second time around.")
