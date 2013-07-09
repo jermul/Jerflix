@@ -16,7 +16,7 @@ describe UsersController do
 			it "creates the user" do
 				expect(User.count).to eq(1)
 			end
-			it "rediects to the sign in page" do
+			it "redirects to the sign in page" do
 				expect(response).to redirect_to sign_in_path
 			end
 		end
@@ -33,6 +33,26 @@ describe UsersController do
 			end
 			it "sets @user" do
 				expect(assigns(:user)).to be_instance_of(User)
+			end
+		end
+
+		context "sending emails" do
+
+			after { ActionMailer::Base.deliveries.clear }
+			
+			it "sends out email to the user with valid inputs" do
+				post :create, user: { email: "john@example.com", password: "password", full_name: "John Doe" }
+				expect(ActionMailer::Base.deliveries.last.to).to eq(['john@example.com'])
+			end
+
+			it "sends out email containing the user's name with valid inputs" do
+				post :create, user: { email: "john@example.com", password: "password", full_name: "John Doe" }
+				expect(ActionMailer::Base.deliveries.last.body).to include('John Doe')
+			end
+
+			it "does not send out email with invalid inputs" do
+				post :create, user: { email: "john@example.com" }
+				expect(ActionMailer::Base.deliveries).to be_empty
 			end
 		end
 	end
