@@ -18,6 +18,7 @@ group :development do
   gem 'sqlite3'
   gem 'pry'
   gem 'pry-nav'
+  gem 'letter_opener'
 end
 
 group :test, :development do
@@ -28,6 +29,7 @@ end
 group :test do
 	gem 'shoulda-matchers'
 	gem 'capybara'
+  gem 'capybara-email'
   gem 'launchy'
 end
 

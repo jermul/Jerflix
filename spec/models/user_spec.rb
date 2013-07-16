@@ -8,6 +8,10 @@ describe User do
 	it { should have_many(:queue_items).order(:position) }
 	it { should have_many(:reviews).order("created_at DESC") }
 
+	it_behaves_like "tokenable" do
+		let(:object) { Fabricate(:user) }
+	end
+
 	describe "#queued_video?" do
 		it "returns true when the user queued the video" do
 			user  = Fabricate(:user)
@@ -36,6 +40,21 @@ describe User do
 			bob = Fabricate(:user)
 			Fabricate(:relationship, leader: jim, follower: bob)
 			expect(jim.follows?(bob)).to be_false
+		end
+	end
+
+	describe "#follow" do
+		it "follows another user" do
+			jim = Fabricate(:user)
+			bob = Fabricate(:user)
+			jim.follow(bob)
+			expect(jim.follows?(bob)).to be_true
+		end
+
+		it "does not follow one self" do
+			jim = Fabricate(:user)
+			jim.follow(jim)
+			expect(jim.follows?(jim)).to be_false
 		end
 	end
 end
