@@ -41,7 +41,7 @@ group :test do
   gem 'vcr'
   gem 'webmock', '1.11.0'
   gem 'selenium-webdriver'
-  gem 'database_cleaner'
+  gem 'database_cleaner', git: 'https://github.com/tommeier/database_cleaner', branch: 'fix-superclass'
 end
 
 group :production do

@@ -29,7 +29,7 @@
             %label.control-label Expiration
             .controls
               = select_month(Date.today, {add_month_numbers: true},  class: 'span2', data: {stripe: "exp-month"})
-              = select_year(Date.today.year, {start_year: Date.today.year, end_year: Date.today.year + 4}, class: 'span1', data: {stripe: "exp-year"})
+              = select_year(Date.today.year, {start_year: Date.today.year, end_year: Date.today.year + 4}, class: 'span2', data: {stripe: "exp-year"})
         %fieldset.actions.control-group
           .controls
             %input(type="submit" value="Sign Up" class="btn")
