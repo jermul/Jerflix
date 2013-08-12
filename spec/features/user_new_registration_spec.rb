@@ -5,7 +5,7 @@ feature 'User registers', { js: true, vcr: true } do
   scenario 'with valid user and credit card info' do
     new_user_registration("johndoe@example.com", "4242424242424242")
 
-    expect(page).to have_content "Thank you for registering with MyFlix"
+    expect(page).to have_content "Thank you for registering with Myflix. Plese sign in now."
 
     new_user_sign_in("johndoe@example.com")
     expect(page).to have_content "You have successfully signed in."
